@@ -1,5 +1,5 @@
 # LapisBlue Docs
-#### ~ [lapis.blue/docs](http://lapis.blue/docs)
+#### ~ [docs.lapis.blue](http://docs.lapis.blue)
 [![travis badge](https://travis-ci.org/LapisBlue/Docs.svg)](https://travis-ci.org/LapisBlue/Docs)
 
 These are our automatically hosted and generated documentation.

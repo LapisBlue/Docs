@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "gulp dev",
-    "travis-deploy": "git config --global user.name \"Travis-CI\" && git config --global user.email \"noreply@travis-ci.com\" && ./node_modules/.bin/bower install && ./node_modules/.bin/gulp deploy"
+    "travis-deploy": "git config --global user.name \"Travis-CI\" && git config --global user.email \"noreply@travis-ci.com\" && ./node_modules/.bin/bower install && ./node_modules/.bin/gulp travis-deploy"
   },
   "license": "MIT"
 }
