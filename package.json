@@ -26,7 +26,7 @@
   },
   "scripts": {
     "dev": "gulp dev",
-    "deploy": "./travis-user.sh && gulp deploy > /dev/null 2>&1"
+    "deploy": "./travis-user.sh && ./node_modules/.bin/gulp deploy"
   },
   "license": "MIT"
 }
