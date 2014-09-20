@@ -4,6 +4,7 @@ var deploy = require('gulp-gh-pages');
 var rimraf = require('gulp-rimraf');
 var uglify = require('gulp-uglify');
 var minify = require('gulp-minify-css');
+var markdown = require('gulp-markdown');
 var concat = require('gulp-concat');
 var templates = require('gulp-jade');
 var stylus = require('gulp-stylus');
