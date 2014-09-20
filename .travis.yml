@@ -1,9 +1,10 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
 before_script:
-  sudo npm install -g gulp
+- sudo npm install -g gulp > /dev/null 2>&1
 script: npm run-script travis-deploy
 env:
   global:
   - GH_REF: github.com/LapisBlue/Docs.git
+  - secure: StE48NvBGDJbJZdZuDL1R+0yUt5BGAhMTRmGr5hbbgFmHeTHNnqVa3zQ2m502Zt846HucbwH/7llUfVOkefnihscfRZQy6tzn6oJRw9TWNS5rFuEcV5OMW05XKajgD4ALHLV9WTpmiZrLjIXxnbKxhsFlVlATgoRbDyvgcjrl18=
