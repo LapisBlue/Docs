@@ -1,5 +1,5 @@
 ---
-title: Root
+title: Overview
 ---
 
 Welcome to the Lapis documentation!

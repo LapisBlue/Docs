@@ -55,7 +55,7 @@ var getCrumbs = function (info) {
   var acc = '';
   out.push({
     active: false,
-    title: 'root',
+    title: 'docs',
     link: '/'
   });
   breadcrumbs.forEach(function (item) {
