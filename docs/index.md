@@ -28,6 +28,6 @@ We'd love to have any help you wish to give!
 We have several communication methods:
 
 - File an issue in one of our [github repos](https://github.com/LapisBlue)
-- Talk with us at `#lapis` on esper.net
+- Talk with us on IRC at `#lapis` on esper.net
 
 __TODO:__ We'll soon post a [public styleguide and contributing guideline](/contributing).
