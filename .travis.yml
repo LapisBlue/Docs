@@ -7,7 +7,7 @@ branches:
     - gh-pages
 notifications:
   email: false
-  irc: "irc.esper.net#lapis"
+  irc: false
 env:
   global:
   - GH_REF: github.com/LapisBlue/Docs.git
