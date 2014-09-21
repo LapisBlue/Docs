@@ -1,5 +1,5 @@
 ---
-title: Docs
+title: Home
 ---
 
 Welcome to the Lapis documentation!
@@ -15,6 +15,12 @@ and [Gulp + node](http://gulpjs.com/) to build our static website projects(homep
 
 All our work is free, open-source, and MIT-licensed.
 
+## Projects
+
+We're working on several projects!
+
+__TODO:__ Add projects.
+
 ## Work with us
 
 We'd love to have any help you wish to give!
@@ -22,6 +28,6 @@ We'd love to have any help you wish to give!
 We have several communication methods:
 
 - File an issue in one of our [github repos](https://github.com/LapisBlue)
-- Talk with us at `#lapis` on esper
+- Talk with us at `#lapis` on esper.net
 
 __TODO:__ We'll soon post a [public styleguide and contributing guideline](/contributing).

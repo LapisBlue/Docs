@@ -38,7 +38,7 @@ var getCrumbs = function (info) {
   var acc = '';
   out.push({
     active: false,
-    title: 'docs',
+    title: 'home',
     link: '/'
   });
   breadcrumbs.forEach(function (item) {
