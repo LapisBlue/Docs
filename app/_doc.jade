@@ -4,13 +4,12 @@ block content
     .row
       .col-md-3
         .form-group(style='width: 100%').docs-nav
-          .input-group(style='width: 100%')
-            input.form-control(type="text", placeholder="Search").search-form
-            span.input-group-btn(style='width: 40px')
-              button.btn.btn-default.search-trigger
-                i.fa.fa-search.fa-fw
+          input.form-control(type="text", placeholder="Search").search-form
+          //-span.input-group-btn(style='width: 40px')
+            button.btn.btn-default.search-trigger
+              i.fa.fa-search.fa-fw
         != sidebar
-      .col-md-9
+      .col-md-9.main
         h1.page-header= title
           .pull-right
             a(href="#{link}", data-toggle='tooltip', data-placement='left', title='Improve this article').btn.btn-default.edit-btn

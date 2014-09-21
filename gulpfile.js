@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var minify = require('gulp-minify-css');
 var markdown = require('gulp-markdown');
 var concat = require('gulp-concat');
+var coffee = require('gulp-coffee');
 var templates = require('gulp-jade');
 var stylus = require('gulp-stylus');
 var sourcemaps = require('gulp-sourcemaps');
@@ -23,6 +24,7 @@ var connectLivereload = require('connect-livereload');
 
 var paths = {
   assets: ['./app/assets/**/*'],
+  coffee: ['./app/**/*.coffee'],
   docs: './docs/**/*.md',
   stylus: ['app/**/*.styl', 'app/**/*.css', '!app/**/_*.styl'],
   templates: ['app/**/*.jade', '!app/**/_*.jade'],
@@ -49,6 +51,15 @@ gulp.task('stylus', function () {
     .pipe(sourcemaps.write('../maps/', {sourceRoot: '../app/'}))
     .pipe(gulp.dest('./public/css'));
 
+});
+
+gulp.task('coffee', function () {
+  return gulp.src(paths.coffee)
+    .pipe(sourcemaps.init())
+    .pipe(coffee())
+    .pipe(concat('app.js'))
+    .pipe(sourcemaps.write('../maps/', {sourceRoot: '../app/'}))
+    .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('templates', function () {
@@ -100,6 +111,14 @@ gulp.task('stylus:prod', function () {
 
 });
 
+gulp.task('coffee:prod', function () {
+  return gulp.src(paths.coffee)
+    .pipe(coffee())
+    .pipe(concat('app.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./public/js'));
+});
+
 gulp.task('bower:prod', function () {
 
   var js = filter('**/*.js');
@@ -127,11 +146,11 @@ gulp.task('clean', function () {
     .pipe(rimraf());
 });
 
-gulp.task('build', ['bower', 'templates', 'stylus', 'assets', 'docs']);
+gulp.task('build', ['bower', 'templates', 'coffee', 'stylus', 'assets', 'docs']);
 gulp.task('build:prod', function (cb) {
   runseq(
     'clean',
-    ['bower:prod','templates', 'stylus:prod', 'assets', 'docs'],
+    ['bower:prod','templates', 'coffee:prod', 'stylus:prod', 'assets', 'docs'],
     cb
   );
 });
@@ -159,6 +178,7 @@ gulp.task('serve', ['build'], function () {
 gulp.task('watch', ['build'], function () {
 
   gulp.watch(paths.assets, ['assets']);
+  gulp.watch(paths.coffee, ['coffee']);
   gulp.watch([paths.docs, 'app/**/*.jade'], ['docs']);
   gulp.watch(['app/**/*.styl'], ['stylus']);
   gulp.watch(['app/**/*.jade'], ['templates']);

@@ -34,7 +34,7 @@ var getInfo = function (file) {
 
   var docLink = link(file);
   var docTitle = content.attributes.title;
-  var docBody = marked(content.body);
+  var docBody = content.body;
   var docIndex = path.basename(file) === 'index.md';
 
   return {
@@ -115,24 +115,39 @@ module.exports = function (cb) {
     var last = articles.pop();
     articles.splice(0, 0, last);
   }
+
   var sidebar = sidebarTpl()({
     articles: articles
   });
+
+  var searchData = [];
 
   var files = glob.sync('docs/**/*.md');
   files.forEach(function (file) {
     var info = getInfo(file);
     var publicFile = file.replace(/^docs/, 'public').replace(/\.md$/, '.html');
     mkdirp.sync(path.dirname(publicFile));
+    var doc = marked(info.body);
+    var crumbs = getCrumbs(info);
     var compiled = docTpl()({
       title: info.title,
-      doc: marked(info.body),
+      doc: doc,
       sidebar: sidebar,
-      breadcrumbs: getCrumbs(info),
+      breadcrumbs: crumbs,
       link: 'https://github.com/LapisBlue/Docs/blob/master/' + info.file
+    });
+    searchData.push({
+      link: info.link,
+      title: info.title,
+      body: doc + info.body,
+      crumbsFlat: crumbs.map(function (crumb) { return crumb.title }).join('/'),
+      crumbs: crumbs
     });
     fs.writeFileSync(publicFile, compiled);
   });
+
+  mkdirp.sync('./public/js/');
+  fs.writeFileSync('./public/js/search-data.js', '\nsetSearchData(' + JSON.stringify(searchData, null, 2) + ');');
 
   if(cb) cb();
 };
