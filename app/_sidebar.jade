@@ -1,0 +1,17 @@
+mixin nested(article)
+  li
+    a(href="#{article.link}")= article.title
+  if article.articles && article.articles.length > 0
+    ul.nav.nav-nested
+      each sub in article.articles
+        if sub.articles && sub.articles.length > 0
+          +nested(sub)
+        else
+          li
+            a(href="#{sub.link}")= sub.title
+.panel.panel-default.docs-nav
+  .panel-heading Articles
+  .panel-body
+    ul.nav
+      each article in articles
+        +nested(article)

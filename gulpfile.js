@@ -13,6 +13,7 @@ var filter = require('gulp-filter');
 var livereload = require('gulp-livereload');
 var runseq = require('run-sequence');
 var open = require('open');
+var buildDocs = require('./build-docs');
 
 // server stuff
 var connect = require('connect');
@@ -22,6 +23,7 @@ var connectLivereload = require('connect-livereload');
 
 var paths = {
   assets: ['./app/assets/**/*'],
+  docs: './docs/**/*.md',
   stylus: ['app/**/*.styl', 'app/**/*.css', '!app/**/_*.styl'],
   templates: ['app/**/*.jade', '!app/**/_*.jade'],
   bower: ['bower_components/**/*']
@@ -81,6 +83,9 @@ gulp.task('bower', function () {
 
 });
 
+// DOCS
+gulp.task('docs', buildDocs);
+
 // PRODUCTION BUILD
 
 gulp.task('stylus:prod', function () {
@@ -122,11 +127,11 @@ gulp.task('clean', function () {
     .pipe(rimraf());
 });
 
-gulp.task('build', ['bower', 'templates', 'stylus', 'assets']);
+gulp.task('build', ['bower', 'templates', 'stylus', 'assets', 'docs']);
 gulp.task('build:prod', function (cb) {
   runseq(
     'clean',
-    ['bower:prod','templates', 'stylus:prod', 'assets'],
+    ['bower:prod','templates', 'stylus:prod', 'assets', 'docs'],
     cb
   );
 });
@@ -140,7 +145,9 @@ gulp.task('serve', ['build'], function () {
     .use(connectLivereload({
       port: port
     }))
-    .use(serveStatic('public/'))
+    .use(serveStatic('public/', {
+      extensions: ['html']
+    }))
     .use(serveIndex('public/'))
     .listen(3000, '0.0.0.0');
 
@@ -152,6 +159,7 @@ gulp.task('serve', ['build'], function () {
 gulp.task('watch', ['build'], function () {
 
   gulp.watch(paths.assets, ['assets']);
+  gulp.watch(paths.docs, ['docs']);
   gulp.watch(['app/**/*.styl'], ['stylus']);
   gulp.watch(['app/**/*.jade'], ['templates']);
   gulp.watch(paths.bower, ['bower']);
