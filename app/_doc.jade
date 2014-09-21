@@ -3,6 +3,12 @@ block content
   .container
     .row
       .col-md-3
+        .form-group(style='width: 100%').docs-nav
+          .input-group(style='width: 100%')
+            input.form-control(type="text", placeholder="Search").search-form
+            span.input-group-btn(style='width: 40px')
+              button.btn.btn-default.search-trigger
+                i.fa.fa-search.fa-fw
         != sidebar
       .col-md-9
         h1.page-header= title
