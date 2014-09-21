@@ -111,11 +111,11 @@ var recurse = function (dir, top) {
 module.exports = function (cb) {
   var articles = recurse('./docs/', true);
   // move to first
-  for(var i; i < articles.length; i++) {
+  for(var i = 0; i < articles.length; i++) {
     var article = articles[i];
     if(article.link === '/') {
-      var root = articles.splice();
-      articles.splice(0, 0, last);
+      articles.splice(i, 1);
+      articles.splice(0, 0, article);
     }
   }
 
