@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var mkdirp = require('mkdirp');
 var glob = require('glob');
+var highlight = require('highlight.js');
 
 var docTpl = function () {
   return jade.compileFile('./app/_doc.jade', {pretty: true});
@@ -17,6 +18,16 @@ var sidebarTpl = function () {
 var link = function (dir) {
   return '/' + dir.replace(/^docs\//, '').replace(/\.md$/, '').replace(/index$/, '').replace(/\/$/, '');
 };
+
+marked.setOptions({
+  highlight: function (code, lang) {
+    if(lang) {
+      return highlight.highlight(lang, code, true).value;
+    } else {
+      return highlight.highlightAuto(code).value;
+    }
+  }
+});
 
 var getInfo = function (file) {
   var content = fm(fs.readFileSync(file, 'utf8'));
