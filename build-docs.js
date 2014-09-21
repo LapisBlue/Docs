@@ -111,9 +111,12 @@ var recurse = function (dir, top) {
 module.exports = function (cb) {
   var articles = recurse('./docs/', true);
   // move to first
-  if(articles[articles.length - 1].link === '/') {
-    var last = articles.pop();
-    articles.splice(0, 0, last);
+  for(var i; i < articles.length; i++) {
+    var article = articles[i];
+    if(article.link === '/') {
+      var root = articles.splice();
+      articles.splice(0, 0, last);
+    }
   }
 
   var sidebar = sidebarTpl()({

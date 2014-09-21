@@ -1,8 +1,8 @@
 ---
-title: Commands
+title: 'Command'
 ---
 
-Here's what we would like commands to be:
+Here's what we would like commands to look like:
 ```java
 //No annotation needed on the main class
 public class SomeCommands {
