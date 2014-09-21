@@ -5,6 +5,9 @@ script: npm run-script travis-deploy
 branches:
   except:
     - gh-pages
+notifications:
+  email: false
+  irc: "irc.esper.net#lapis"
 env:
   global:
   - GH_REF: github.com/LapisBlue/Docs.git
