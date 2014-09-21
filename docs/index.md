@@ -1,5 +1,5 @@
 ---
-title: Lapis Docs
+title: Docs
 ---
 
 Welcome to the LapisBlue documentation!
