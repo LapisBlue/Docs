@@ -30,6 +30,29 @@ var getInfo = function (file) {
 
 };
 
+var getCrumbs = function (info) {
+  var breadcrumbs = info.link.split('/').slice(1);
+  if(breadcrumbs.length == 1 && breadcrumbs[0] === '')
+    breadcrumbs = [];
+  var out = [];
+  var acc = '';
+  out.push({
+    active: false,
+    title: 'docs',
+    link: '/'
+  });
+  breadcrumbs.forEach(function (item) {
+    acc += '/' + item;
+    out.push({
+      active: false,
+      title: item,
+      link: acc
+    })
+  });
+  out[out.length - 1].active = true;
+  return out;
+};
+
 var recurse = function (dir, top) {
   var docs = fs.readdirSync(dir);
 
@@ -87,7 +110,8 @@ module.exports = function (cb) {
     var compiled = docTpl({
       title: info.title,
       doc: marked(info.body),
-      sidebar: sidebar
+      sidebar: sidebar,
+      breadcrumbs: getCrumbs(info)
     });
     fs.writeFileSync(publicFile, compiled);
   });

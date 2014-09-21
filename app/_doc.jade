@@ -5,5 +5,14 @@ block content
       .col-md-10
         h1.page-header= title
         != doc
+        ol.breadcrumb.doc-breadcrumb
+          each crumb in breadcrumbs
+            if crumb.active
+              li.active= crumb.title
+            else
+              li
+                a(href="#{crumb.link}")= crumb.title
       .col-md-2
         != sidebar
+    .row
+      .col-md-12
