@@ -6,8 +6,13 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var glob = require('glob');
 
-var docTpl = jade.compileFile('./app/_doc.jade', {pretty: true});
-var sidebarTpl = jade.compileFile('./app/_sidebar.jade', {pretty: true});
+var docTpl = function () {
+  return jade.compileFile('./app/_doc.jade', {pretty: true});
+};
+
+var sidebarTpl = function () {
+  return jade.compileFile('./app/_sidebar.jade', {pretty: true});
+};
 
 var link = function (dir) {
   return '/' + dir.replace(/^docs\//, '').replace(/\.md$/, '').replace(/index$/, '').replace(/\/$/, '');
@@ -25,7 +30,8 @@ var getInfo = function (file) {
     link: docLink,
     title: docTitle,
     body: docBody,
-    index: docIndex
+    index: docIndex,
+    file: file
   }
 
 };
@@ -98,7 +104,7 @@ module.exports = function (cb) {
     var last = articles.pop();
     articles.splice(0, 0, last);
   }
-  var sidebar = sidebarTpl({
+  var sidebar = sidebarTpl()({
     articles: articles
   });
 
@@ -107,11 +113,12 @@ module.exports = function (cb) {
     var info = getInfo(file);
     var publicFile = file.replace(/^docs/, 'public').replace(/\.md$/, '.html');
     mkdirp.sync(path.dirname(publicFile));
-    var compiled = docTpl({
+    var compiled = docTpl()({
       title: info.title,
       doc: marked(info.body),
       sidebar: sidebar,
-      breadcrumbs: getCrumbs(info)
+      breadcrumbs: getCrumbs(info),
+      link: 'https://github.com/LapisBlue/Docs/blob/master/' + info.file
     });
     fs.writeFileSync(publicFile, compiled);
   });

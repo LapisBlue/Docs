@@ -159,7 +159,7 @@ gulp.task('serve', ['build'], function () {
 gulp.task('watch', ['build'], function () {
 
   gulp.watch(paths.assets, ['assets']);
-  gulp.watch(paths.docs, ['docs']);
+  gulp.watch([paths.docs, 'app/**/*.jade'], ['docs']);
   gulp.watch(['app/**/*.styl'], ['stylus']);
   gulp.watch(['app/**/*.jade'], ['templates']);
   gulp.watch(paths.bower, ['bower']);
