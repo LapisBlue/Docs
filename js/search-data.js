@@ -42,6 +42,29 @@ setSearchData([
     ]
   },
   {
+    "link": "/commons/perms",
+    "title": "Perms",
+    "body": "<p>Lapis Commons contains a simple, but robust and extensible permissions system.\nSee <a href=\"/commons/perms/algebra\">An Algebra of Permissions</a> to see the &#39;theory&#39; behind the permissions system.</p>\n\nLapis Commons contains a simple, but robust and extensible permissions system.\nSee [An Algebra of Permissions](/commons/perms/algebra) to see the 'theory' behind the permissions system.\n",
+    "crumbsFlat": "docs/commons/perms",
+    "crumbs": [
+      {
+        "active": false,
+        "title": "docs",
+        "link": "/"
+      },
+      {
+        "active": false,
+        "title": "commons",
+        "link": "/commons"
+      },
+      {
+        "active": true,
+        "title": "perms",
+        "link": "/commons/perms"
+      }
+    ]
+  },
+  {
     "link": "/guides",
     "title": "Guides",
     "body": "<p><strong>TODO:</strong> Under here we will put several guides for developers, server owners, and server users.</p>\n\n__TODO:__ Under here we will put several guides for developers, server owners, and server users.",
