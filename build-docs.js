@@ -24,7 +24,7 @@ marked.setOptions({
     if(lang) {
       return highlight.highlight(lang, code, true).value;
     } else {
-      return highlight.highlightAuto(code).value;
+      return code;
     }
   }
 });
