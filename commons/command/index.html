@@ -59,22 +59,22 @@
         <div class="col-md-9 main">
           <h1 class="page-header">Command
             <div class="pull-right"><a href="https://github.com/LapisBlue/Docs/blob/master/docs/commons/command/index.md" data-toggle="tooltip" data-placement="left" title="Improve this article" class="btn btn-default edit-btn"><i class="fa fa-pencil fa-fw"></i></a></div></h1><p>Here&#39;s what we would like commands to look like:</p>
-<pre><code class="lang-java"><span class="hljs-comment">//No annotation needed on the main class</span>
+<pre><code class="lang-java"><span class="hljs-comment">// No annotation needed on the main class</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SomeCommands</span> </span>{
 
   <span class="hljs-annotation">@CommandHandler</span>(name={<span class="hljs-string">"slap"</span>}, permissions= {<span class="hljs-string">"command.slap.self"</span>})
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">slap</span><span class="hljs-params">(CommandSource source)</span> </span>{
-    <span class="hljs-comment">//TODO: Slap self</span>
+    <span class="hljs-comment">// TODO: Slap self</span>
   }
 
   <span class="hljs-annotation">@CommandHandler</span>(name={<span class="hljs-string">"slap"</span>}, permissions= {<span class="hljs-string">"command.slap.other"</span>})
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">slap</span><span class="hljs-params">(CommandSource source, Player other)</span> </span>{
-    <span class="hljs-comment">//TODO: Slap other</span>
+    <span class="hljs-comment">// TODO: Slap other</span>
   }
 
   <span class="hljs-annotation">@CommandHandler</span>(name={<span class="hljs-string">"slap"</span>}, permissions= {<span class="hljs-string">"command.slap.other"</span>})
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">slap</span><span class="hljs-params">(CommandSource source, Player other, CommandFlags flags)</span> </span>{
-    <span class="hljs-comment">//TODO: Slap other, but more specifically</span>
+    <span class="hljs-comment">// TODO: Slap other, but more specifically</span>
   }
 
 
