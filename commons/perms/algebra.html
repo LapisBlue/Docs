@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Lapis Docs</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/img/lapis.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/vendor.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/vendor.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav navbar-nav">
+              <li><a href="http://lapis.blue" class="logo-a"><img src="/img/lapis-rounded.png" class="sponge-logo"></a>
+              </li>
+              <li class="active"><a href="http://docs.lapis.blue"><i class="fa fa-fw fa-book"></i> Docs</a></li>
+              <li><a href="https://github.com/LapisBlue"><i class="fa fa-fw fa-github"></i> Code</a></li>
+              <li><a href="http://ci.lapis.blue"><i class="fa fa-fw fa-tasks"></i> CI</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div style="width: 100%" class="form-group docs-nav">
+            <input type="text" placeholder="Search" class="form-control search-form">
+          </div>
+<div class="panel panel-default">
+  <div class="panel-heading">Articles</div>
+  <div class="panel-body">
+    <ul class="nav">
+      <li><a href="/">Overview</a></li>
+      <li><a href="/commons">Commons</a></li>
+      <ul class="nav nav-nested">
+        <li><a href="/commons/command">Command</a></li>
+        <li><a href="/commons/perms">Perms</a></li>
+        <ul class="nav nav-nested">
+          <li><a href="/commons/perms/algebra">Perms Algebra</a></li>
+        </ul>
+      </ul>
+      <li><a href="/guides">Guides</a></li>
+      <li><a href="/lapis">Lapis</a></li>
+      <ul class="nav nav-nested">
+        <li><a href="/lapis/code-style">Code Style</a></li>
+        <li><a href="/lapis/compiling">Compiling</a></li>
+        <li><a href="/lapis/contributing">Contributing</a></li>
+      </ul>
+    </ul>
+  </div>
+</div>
+        </div>
+        <div class="col-md-9 main">
+          <h1 class="page-header">Perms Algebra
+            <div class="pull-right"><a href="https://github.com/LapisBlue/Docs/blob/master/docs/commons/perms/algebra.md" data-toggle="tooltip" data-placement="left" title="Improve this article" class="btn btn-default edit-btn"><i class="fa fa-pencil fa-fw"></i></a></div></h1><p>The following is an overview of how the Lapis permissions &#39;algebra&#39; works.
+Permissions files are declared in a special syntax, this will be adapted and definitely changed later.</p>
+<h2 id="permissions">Permissions</h2>
+<p>Individual permissions are simply period-separated strings.
+If you append a <code>*</code> asterisk to the end of a node, every possible sub-node is valid.
+For example:</p>
+<pre><code>=&gt; means &#39;implies&#39;
+
+a.b.c
+a.b.c.d
+
+a.b.* =&gt; a.b.c
+a.b.* =&gt; a.b.c.d
+</code></pre><h2 id="buckets">Buckets</h2>
+<p>Because they are not really groups, I chose to adopt a different name: Buckets.
+A bucket is simply a collection of permissions.
+<em>It has no other given meaning.</em>
+Below is an example syntax of how to declare some buckets:</p>
+<pre><code>CanPlace {
+  modify.block.place.non_destructive
+}
+
+CanPlaceDestructive {
+  modify.block.place.non_destructive
+  modify.block.place.destructive
+}
+
+CanModify {
+  modify.block.*
+}
+</code></pre><h3 id="bucket-inheritance">Bucket Inheritance</h3>
+<p>Buckets can inherit the permissions of several parent buckets.
+Here&#39;s an example syntax of how to declare some bucket inheritance:</p>
+<pre><code>CanPlace {
+  modify.block.place.non_destructive
+}
+
+// Outside
+CanPlaceDestructive &lt;- CanPlace
+CanPlaceDestructive &lt;- ABucket
+
+CanPlaceDestructive {
+  modify.block.place.destructive
+}
+
+// Inline
+CanModify &lt;- CanPlaceDestructive {
+  modify.block.*
+}
+</code></pre><p>This leads us to our first axiom:</p>
+<blockquote>
+<p><strong>Axiom #1</strong>: if C &lt;- B and B &lt;- A then C &lt;- A</p>
+</blockquote>
+<p>Pretty easy and reasonable.</p>
+<p>Here&#39;s a picture:</p>
+<p><strong>TODO</strong> insert picture here</p>
+<h3 id="-computed-buckets">&#39;Computed&#39; buckets</h3>
+<p>The only reason that this Permissions algebra can be interesting is because buckets can be computed based on
+the state of the Minecraft game.
+Here&#39;s an example syntax of how a computed world bucket would look:</p>
+<pre><code>w[FreeForAll] {
+  modify.*
+}
+</code></pre><p>Or maybe a user bucket:</p>
+<pre><code>u[Notch] {
+  modify.game
+}
+</code></pre><p>These buckets can also be inherited from other ones, like regular buckets:</p>
+<pre><code>u[Notch] &lt;- CanPlace
+</code></pre><h3 id="bucket-unions">Bucket unions</h3>
+<p>We can take the union of two or more buckets to form a virtual bucket.
+This is done implicitly when a bucket inherits from more than one parent bucket,
+but can also be done implicitly with our example syntax.</p>
+<pre><code>CanChat {
+  chat.*
+}
+
+Guest {}
+Member &lt;- CanChat | Guest {}
+</code></pre><p>This leads us to our second axiom:</p>
+<blockquote>
+<p><strong>Axiom #2</strong>: if C &lt;- A | B then C &lt;- A and C &lt;- B</p>
+</blockquote>
+<p>This axiom goes in reverse as well(making number three)</p>
+<blockquote>
+<p><strong>Axiom #3</strong>: if C &lt;- A and C &lt;- B then C &lt;- A | B</p>
+</blockquote>
+<p>Here&#39;s a picture:</p>
+<p><strong>TODO</strong> insert picture here</p>
+<h3 id="bucket-intersections">Bucket intersections</h3>
+<p>A query can be made based on if an object belongs in two or more buckets at the same time.
+It looks like a typical <code>&amp;</code> query.</p>
+<pre><code>CanModify {
+  modify.block.*
+}
+
+CanChat {
+  chat.*
+}
+
+Guest {}
+Member &lt;- CanChat | Guest {}
+
+w[FreeForAll] &amp; Guest &lt;- CanModify
+w[World] &amp; Guest &lt;- CanChat
+</code></pre><p>This leads us to our fourth axiom:</p>
+<blockquote>
+<p><strong>Axiom #4</strong>: if B &lt;- A and A &amp; C &lt;- D then B &amp; C &lt;- D</p>
+</blockquote>
+<p>In English means that a group&#39;s intersections inherit from any intersections of its parent groups.</p>
+<p>It may be easier to understand as a picture:</p>
+<p><strong>TODO</strong> insert picture here</p>
+<h3 id="more">More</h3>
+<p>More may be coming on possible implementations and stuff.</p>
+
+          <ol class="breadcrumb doc-breadcrumb">
+            <li><a href="/">docs</a></li>
+            <li><a href="/commons">commons</a></li>
+            <li><a href="/commons/perms">perms</a></li>
+            <li class="active">algebra</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/search-data.js"></script>
+  </body>
+</html>
