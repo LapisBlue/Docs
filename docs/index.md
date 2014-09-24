@@ -19,4 +19,4 @@ We have several communication methods:
 
 - File an issue in one of our [github repos](https://github.com/LapisBlue)
     - Be sure to check how to [contribute](/lapis/contributing)
-- Talk with us on IRC at `#lapis` on esper.net
+- Talk with us on IRC at `#lapis` on irc.esper.net
