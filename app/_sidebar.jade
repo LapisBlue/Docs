@@ -1,5 +1,4 @@
 - var active = function (link) { return (activeLinks.indexOf(link) !== -1) ? 'active' : ''; };
-- console.log(activeLinks);
 mixin nested(article)
   li(class=active(article.link))
     a(href="#{article.link}")= article.title
