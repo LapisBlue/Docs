@@ -119,9 +119,8 @@ module.exports = function (cb) {
     }
   }
 
-  var sidebar = sidebarTpl()({
-    articles: articles
-  });
+  var sidebart = sidebarTpl();
+  var doct = docTpl();
 
   var searchData = [];
 
@@ -132,10 +131,15 @@ module.exports = function (cb) {
     mkdirp.sync(path.dirname(publicFile));
     var doc = marked(info.body);
     var crumbs = getCrumbs(info);
-    var compiled = docTpl()({
+    var activeLinks = crumbs.length === 1 ? [crumbs[0].link] :
+      crumbs.slice(1).map(function (crumb) { return crumb.link });
+    var compiled = doct({
       title: info.title,
       doc: doc,
-      sidebar: sidebar,
+      sidebar: sidebart({
+        articles: articles,
+        activeLinks: activeLinks
+      }),
       breadcrumbs: crumbs,
       link: 'https://github.com/LapisBlue/Docs/blob/master/' + info.file
     });

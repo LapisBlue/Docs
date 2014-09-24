@@ -3,6 +3,7 @@ title: Perms Algebra
 ---
 
 The following is an overview of how the Lapis permissions 'algebra' works.
+It is basically just set theory, applied to Minecraft.
 Permissions files are declared in a special syntax, this will be adapted and definitely changed later.
 
 ## Permissions
@@ -67,6 +68,7 @@ This leads us to our first axiom:
 > __Axiom #1__: if C <- B and B <- A then C <- A
 
 Pretty easy and reasonable.
+This basically just means that `<-`, or inheritance, is transitive.
 
 Here's a picture:
 

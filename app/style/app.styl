@@ -63,10 +63,6 @@ body
 .project-icon
   margin-top: 30px
 
-.nav-dropdown-link
-  padding: 15px
-  background-color: #e7e7e7
-
 .search-back
   position: relative
   width: 100%
@@ -99,8 +95,16 @@ body
       color #ddd
       text-decoration none
 
-.docs-nav
+.docs-push
   margin-top: 46px
+
+.docs-nav
+  li
+    border-left: 2px solid transparent
+    &.active
+      border-left: 2px solid #4b7b97
+      background: #f9f9f9
+      font-weight: bold
 
 .nav-nested
   padding-left: 12px !important
