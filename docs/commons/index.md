@@ -3,7 +3,7 @@ title: 'Commons'
 ---
 
 This project includes:
-- Econ
+- Economy
 - [Command](/commons/command)
 
 ## Philosophy
