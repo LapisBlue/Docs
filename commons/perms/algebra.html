@@ -33,20 +33,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <div style="width: 100%" class="form-group docs-nav">
+          <div style="width: 100%" class="form-group docs-push">
             <input type="text" placeholder="Search" class="form-control search-form">
           </div>
 <div class="panel panel-default">
   <div class="panel-heading">Articles</div>
   <div class="panel-body">
-    <ul class="nav">
+    <ul class="nav docs-nav">
       <li><a href="/">Overview</a></li>
-      <li><a href="/commons">Commons</a></li>
+      <li class="active"><a href="/commons">Commons</a></li>
       <ul class="nav nav-nested">
         <li><a href="/commons/command">Command</a></li>
-        <li><a href="/commons/perms">Perms</a></li>
+        <li class="active"><a href="/commons/perms">Perms</a></li>
         <ul class="nav nav-nested">
-          <li><a href="/commons/perms/algebra">Perms Algebra</a></li>
+          <li class="active"><a href="/commons/perms/algebra">Perms Algebra</a></li>
         </ul>
       </ul>
       <li><a href="/guides">Guides</a></li>
@@ -63,6 +63,7 @@
         <div class="col-md-9 main">
           <h1 class="page-header">Perms Algebra
             <div class="pull-right"><a href="https://github.com/LapisBlue/Docs/blob/master/docs/commons/perms/algebra.md" data-toggle="tooltip" data-placement="left" title="Improve this article" class="btn btn-default edit-btn"><i class="fa fa-pencil fa-fw"></i></a></div></h1><p>The following is an overview of how the Lapis permissions &#39;algebra&#39; works.
+It is basically just set theory, applied to Minecraft.
 Permissions files are declared in a special syntax, this will be adapted and definitely changed later.</p>
 <h2 id="permissions">Permissions</h2>
 <p>Individual permissions are simply period-separated strings.
@@ -115,7 +116,8 @@ CanModify &lt;- CanPlaceDestructive {
 <blockquote>
 <p><strong>Axiom #1</strong>: if C &lt;- B and B &lt;- A then C &lt;- A</p>
 </blockquote>
-<p>Pretty easy and reasonable.</p>
+<p>Pretty easy and reasonable.
+This basically just means that <code>&lt;-</code>, or inheritance, is transitive.</p>
 <p>Here&#39;s a picture:</p>
 <p><strong>TODO</strong> insert picture here</p>
 <h3 id="-computed-buckets">&#39;Computed&#39; buckets</h3>
