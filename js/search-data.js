@@ -209,5 +209,46 @@ setSearchData([
         "link": "/lapis"
       }
     ]
+  },
+  {
+    "link": "/pore/contributing",
+    "title": "Contributing",
+    "body": "<h1 id=\"pore-contrubuting-guidelines\">Pore Contrubuting Guidelines</h1>\n<h2 id=\"requirements\">Requirements</h2>\n<p>At this time, Pore&#39;s contribution guidelines are very loose, though this is subject to change as development progresses.\nCurrently, the only criteria are that contributions compile, and that they adhere to Pore&#39;s goals as a project.\nPore&#39;s goals are as follows:</p>\n<ul>\n<li>Pore should serve only as an abstraction layer between Bukkit and Sponge.\n  As such, it must include as little non-reference code as possible.</li>\n<li>Pore follows a minimal-diff policy for the sake of maintained compatibility.\n  As such, contributions should avoid modifying the copy of the Bukkit API included in this repository at all costs.\n  If the API absolutely must be modified, a comment should be added denoting the change (e.g. // Pore: protected -&gt; public).</li>\n</ul>\n<h2 id=\"concurrent-development\">Concurrent Development</h2>\n<p>To avoid the issue of conflicting pull requests, we have set up <a href=\"https://trello.com/b/J6AT6tDl/pore\">a page on Trello</a> used to track who&#39;s working on what.\nWe ask that you reference this before starting work, and create or move a card once you have.</p>\n<h2 id=\"submitting-a-pull-request\">Submitting a Pull Request</h2>\n<p>Once you&#39;ve ensured that your contribution meets the above requirements, you may submit them as a pull request to the main repository.\nThe pull request must include information regarding what has been changed and what is accomplished. Ultimately, the repository owner will have final discretion as to what is and is not merged.</p>\n\nPore Contrubuting Guidelines\n============================\n\nRequirements\n------------\nAt this time, Pore's contribution guidelines are very loose, though this is subject to change as development progresses.\nCurrently, the only criteria are that contributions compile, and that they adhere to Pore's goals as a project.\nPore's goals are as follows:\n- Pore should serve only as an abstraction layer between Bukkit and Sponge.\n    As such, it must include as little non-reference code as possible.\n- Pore follows a minimal-diff policy for the sake of maintained compatibility.\n    As such, contributions should avoid modifying the copy of the Bukkit API included in this repository at all costs.\n    If the API absolutely must be modified, a comment should be added denoting the change (e.g. // Pore: protected -> public).\n\nConcurrent Development\n----------------------\nTo avoid the issue of conflicting pull requests, we have set up [a page on Trello](https://trello.com/b/J6AT6tDl/pore) used to track who's working on what.\nWe ask that you reference this before starting work, and create or move a card once you have.\n\nSubmitting a Pull Request\n-------------------------\nOnce you've ensured that your contribution meets the above requirements, you may submit them as a pull request to the main repository.\nThe pull request must include information regarding what has been changed and what is accomplished. Ultimately, the repository owner will have final discretion as to what is and is not merged.",
+    "crumbsFlat": "docs/pore/contributing",
+    "crumbs": [
+      {
+        "active": false,
+        "title": "docs",
+        "link": "/"
+      },
+      {
+        "active": false,
+        "title": "pore",
+        "link": "/pore"
+      },
+      {
+        "active": true,
+        "title": "contributing",
+        "link": "/pore/contributing"
+      }
+    ]
+  },
+  {
+    "link": "/pore",
+    "title": "Pore",
+    "body": "<p>A plugin for the up-and-coming Sponge project which serves as a bridge between the Bukkit and Sponge APIs.</p>\n<h2 id=\"compilation\">Compilation</h2>\n<p>Maven is used to handle dependencies.</p>\n<ul>\n<li>Install <a href=\"http://maven.apache.org/download.html\">Maven 3</a></li>\n<li>Check out this repo and: <code>mvn clean install</code></li>\n</ul>\n<h2 id=\"licensing\">Licensing</h2>\n<p>Pore is made available under the MIT license. You may do as you wish with the software within its bounds.</p>\n\nA plugin for the up-and-coming Sponge project which serves as a bridge between the Bukkit and Sponge APIs.\n\nCompilation\n-----------\n\nMaven is used to handle dependencies.\n\n* Install [Maven 3](http://maven.apache.org/download.html)\n* Check out this repo and: `mvn clean install`\n\nLicensing\n---------\n\nPore is made available under the MIT license. You may do as you wish with the software within its bounds.",
+    "crumbsFlat": "docs/pore",
+    "crumbs": [
+      {
+        "active": false,
+        "title": "docs",
+        "link": "/"
+      },
+      {
+        "active": true,
+        "title": "pore",
+        "link": "/pore"
+      }
+    ]
   }
 ]);
