@@ -2,9 +2,6 @@
 title: 'Contributing'
 ---
 
-Pore Contrubuting Guidelines
-============================
-
 Requirements
 ------------
 At this time, Pore's contribution guidelines are very loose, though this is subject to change as development progresses.

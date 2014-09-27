@@ -10,6 +10,7 @@ make a PR and we will look at it.
 ## [About Lapis](/lapis)
 ## Projects
 - [Commons](/commons): An advanced toolkit for plugin authors.
+- [Pore](/pore): Run existing Bukkit plugins on Sponge natively.
 
 ## Work with us
 
