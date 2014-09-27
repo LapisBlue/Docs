@@ -19,3 +19,5 @@ title: 'Code Style'
     - You can run `./gradlew licenseFormat` to let Gradle do that automatically.
     
 - When in doubt, ignore all rules and write the most readable code you can. We’re on Git, we can always revert and discuss something if we don’t like it.
+
+- We have an IntelliJ formatting configuration file [in our repo](https://github.com/LapisBlue/Commons/blob/master/extra/formatter/intellij/LapisCommons.xml). You can use it to reformat your code before contributing.
