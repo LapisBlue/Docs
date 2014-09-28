@@ -11,7 +11,6 @@ make a PR and we will look at it.
 ## Projects
 - [Commons](/commons): An advanced toolkit for plugin authors.
 - [Pore](/pore): Run existing Bukkit plugins on Sponge natively.
-- 
 
 ## [Javadocs](http://jd.lapis.blue)
 
