@@ -2,6 +2,8 @@
 title: 'Pore'
 ---
 
+Please see the [trello board](https://trello.com/b/J6AT6tDl/pore).
+
 A plugin for the up-and-coming Sponge project which serves as a bridge between the Bukkit and Sponge APIs.
 
 Compilation
