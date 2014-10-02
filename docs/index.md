@@ -24,3 +24,4 @@ We have several communication methods:
     - Be sure to check how to [contribute](/lapis/contributing)
 - Talk with us on IRC at `#lapis` on irc.esper.net
 - View/modify one of our [Trello boards](https://trello.com/lapis)
+- Take a look at a few of our [google docs](https://drive.google.com/drive/#folders/0B5EFkhXKnIfTU2trM3hiSHR0azQ)
