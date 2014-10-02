@@ -2,6 +2,8 @@
 title: 'Commons'
 ---
 
+Please see the [trello board](https://trello.com/b/f2PkdRlH/commons) and [google docs folders](https://drive.google.com/drive/#folders/0B5EFkhXKnIfTU2trM3hiSHR0azQ).
+
 This project includes:
 - Economy
 - [Command](/commons/command)
