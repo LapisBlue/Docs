@@ -1,14 +1,15 @@
 language: node_js
 node_js:
-- '0.10'
+  - '0.10'
+before_script: git clone $LAPIS_DEPLOY $DEPLOY_ROOT && eval $(ssh-agent) && $DEPLOY_ROOT/setup_git.sh
 script: npm run-script travis-deploy
+after_script: eval $(ssh-agent -k)
 branches:
-  only:
-    - master
+  only: master
 notifications:
   email: false
-  irc: false
 env:
   global:
-  - GH_REF: github.com/LapisBlue/Docs.git
-  - secure: StE48NvBGDJbJZdZuDL1R+0yUt5BGAhMTRmGr5hbbgFmHeTHNnqVa3zQ2m502Zt846HucbwH/7llUfVOkefnihscfRZQy6tzn6oJRw9TWNS5rFuEcV5OMW05XKajgD4ALHLV9WTpmiZrLjIXxnbKxhsFlVlATgoRbDyvgcjrl18=
+    - LAPIS_DEPLOY=https://github.com/LapisBlue/Deploy.git DEPLOY_ROOT=/tmp/lapis/deploy
+    - GIT_REPO=git@github.com:LapisBlue/lapisblue.github.io.git
+    - secure: GyBne2JY5+hvEkGxfTZel3mxvdJjzyCO9cHMjdnhoTUDiA2WTRtWJDF9bTr52VDMjAjfkLtawcrp7F9xgAkerK1/y+MP3K5mOEjq93IYV0aoDo07H0Ch6rL7pwqMh2NWlcL4Xfpcw5xxd+hJ2D2KjSlvD4XRZhoDrWkPs4BcZmg=
