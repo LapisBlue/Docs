@@ -11,5 +11,5 @@ notifications:
 env:
   global:
     - LAPIS_DEPLOY=https://github.com/LapisBlue/Deploy.git DEPLOY_ROOT=/tmp/lapis/deploy
-    - GIT_REPO=git@github.com:LapisBlue/lapisblue.github.io.git
+    - GIT_REPO=git@github.com:LapisBlue/Docs.git
     - secure: GyBne2JY5+hvEkGxfTZel3mxvdJjzyCO9cHMjdnhoTUDiA2WTRtWJDF9bTr52VDMjAjfkLtawcrp7F9xgAkerK1/y+MP3K5mOEjq93IYV0aoDo07H0Ch6rL7pwqMh2NWlcL4Xfpcw5xxd+hJ2D2KjSlvD4XRZhoDrWkPs4BcZmg=
