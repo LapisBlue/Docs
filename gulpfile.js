@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var bower = require('main-bower-files');
 var deploy = require('gulp-gh-pages');
-var rimraf = require('gulp-rimraf');
+var del = require('del');
 var uglify = require('gulp-uglify');
 var minify = require('gulp-minify-css');
 var markdown = require('gulp-markdown');
@@ -14,6 +14,7 @@ var filter = require('gulp-filter');
 var livereload = require('gulp-livereload');
 var runseq = require('run-sequence');
 var open = require('open');
+
 var buildDocs = require('./build-docs');
 
 // server stuff
@@ -141,9 +142,10 @@ gulp.task('bower:prod', function () {
 
 });
 
-gulp.task('clean', function () {
-  return gulp.src('./public', {read: false})
-    .pipe(rimraf());
+gulp.task('clean', function (cb) {
+  del([
+    './public/'
+  ], cb);
 });
 
 gulp.task('build', ['bower', 'templates', 'coffee', 'stylus', 'assets', 'docs']);
@@ -158,11 +160,11 @@ gulp.task('build:prod', function (cb) {
 // DEVELOPMENT
 
 gulp.task('serve', ['build'], function () {
-  var port = livereload.listen().port;
+  livereload.listen();
 
   connect()
     .use(connectLivereload({
-      port: port
+      port: livereload.options.port
     }))
     .use(serveStatic('public/', {
       extensions: ['html']
