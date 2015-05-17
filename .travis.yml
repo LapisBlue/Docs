@@ -13,4 +13,4 @@ env:
   global:
     - LAPIS_DEPLOY=https://github.com/LapisBlue/Deploy.git DEPLOY_ROOT=/tmp/lapis/deploy
     - GIT_REPO=git@github.com:LapisBlue/Docs.git
-    - secure: GyBne2JY5+hvEkGxfTZel3mxvdJjzyCO9cHMjdnhoTUDiA2WTRtWJDF9bTr52VDMjAjfkLtawcrp7F9xgAkerK1/y+MP3K5mOEjq93IYV0aoDo07H0Ch6rL7pwqMh2NWlcL4Xfpcw5xxd+hJ2D2KjSlvD4XRZhoDrWkPs4BcZmg=
+    - secure: "Sl6g/9ee0pqkmxBogq20j6f/MvZVrdAVu3ADTTt0gDc6KWNcZccjGuMfLaDOXHW4w51WCvu5Q+FVTCLuTk1wZN7K57x3DPpXdHtqJjHQCZS+ZHI+jWXggcJkZ9AKvYXlX1NeoTqtfAuaWcfYxdNAXj5Icv13z8H6UMmKNSqWA3I="
