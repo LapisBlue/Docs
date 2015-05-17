@@ -20,4 +20,4 @@ title: 'Code Style'
     
 - When in doubt, ignore all rules and write the most readable code you can. We’re on Git, we can always revert and discuss something if we don’t like it.
 
-- We have an IntelliJ formatting configuration file [in our repo](https://github.com/LapisBlue/Commons/blob/master/etc/formatter/intellij/LapisCommons.xml). You can use it to reformat your code before contributing.
+- We have an IntelliJ formatting configuration file [in our repo](https://github.com/LapisBlue/Commons/blob/master/etc/intellij/lapis_intellij_style.xml). You can use it to reformat your code before contributing.
