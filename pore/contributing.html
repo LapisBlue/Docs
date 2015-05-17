@@ -71,22 +71,19 @@
         <div class="col-md-9 main">
           <h1 class="page-header">Contributing
             <div class="pull-right"><a href="https://github.com/LapisBlue/Docs/blob/master/docs/pore/contributing.md" data-toggle="tooltip" data-placement="left" title="Improve this article" class="btn btn-default edit-btn"><i class="fa fa-pencil fa-fw"></i></a></div></h1><h2 id="requirements">Requirements</h2>
-<p>At this time, Pore&#39;s contribution guidelines are very loose, though this is subject to change as development progresses.
-Currently, the only criteria are that contributions compile, and that they adhere to Pore&#39;s goals as a project.
-Pore&#39;s goals are as follows:</p>
+<p>At stage in development Pore&#39;s contribution guidelines are fairly loose, though this is subject to change as development
+progresses. Currently, the only criteria are that contributions compile, and that they adhere to Pore&#39;s goals as a
+project:</p>
 <ul>
 <li>Pore should serve only as an abstraction layer between Bukkit and Sponge.
-  As such, it must include as little non-reference code as possible.</li>
+  As such, it should use the most direct implementation possible while still keeping overhead in mind.</li>
 <li>Pore follows a minimal-diff policy for the sake of maintained compatibility.
-  As such, contributions should avoid modifying the copy of the Bukkit API included in this repository at all costs.
-  If the API absolutely must be modified, a comment should be added denoting the change (e.g. // Pore: protected -&gt; public).</li>
+  As such, contributions should avoid adding patches to the <code>Porekit</code> submodule unless absolutely necessary.</li>
 </ul>
-<h2 id="concurrent-development">Concurrent Development</h2>
-<p>To avoid the issue of conflicting pull requests, we have set up <a href="https://trello.com/b/J6AT6tDl/pore">a page on Trello</a> used to track who&#39;s working on what.
-We ask that you reference this before starting work, and create or move a card once you have.</p>
 <h2 id="submitting-a-pull-request">Submitting a Pull Request</h2>
-<p>Once you&#39;ve ensured that your contribution meets the above requirements, you may submit them as a pull request to the main repository.
-The pull request must include information regarding what has been changed and what is accomplished. Ultimately, the repository owner will have final discretion as to what is and is not merged.</p>
+<p>Once you&#39;ve ensured that your contribution meets the above requirements, you may submit them as a pull request to the
+main repository. The pull request must include information regarding what has been changed and what is accomplished in
+as much detail as possible without redundancy.</p>
 
           <ol class="breadcrumb doc-breadcrumb">
             <li><a href="/">docs</a></li>
