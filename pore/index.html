@@ -70,23 +70,36 @@
         </div>
         <div class="col-md-9 main">
           <h1 class="page-header">Pore
-            <div class="pull-right"><a href="https://github.com/LapisBlue/Docs/blob/master/docs/pore/index.md" data-toggle="tooltip" data-placement="left" title="Improve this article" class="btn btn-default edit-btn"><i class="fa fa-pencil fa-fw"></i></a></div></h1><p>Pore is a plugin for the up-and-coming SpongeAPI built to provide compatibility for Bukkit plugins on the platform.
-Please note that this project is still under heavy development and <strong>is not yet considered functional</strong>. Currently, no
-Bukkit plugins are verified to be supported.</p>
+            <div class="pull-right"><a href="https://github.com/LapisBlue/Docs/blob/master/docs/pore/index.md" data-toggle="tooltip" data-placement="left" title="Improve this article" class="btn btn-default edit-btn"><i class="fa fa-pencil fa-fw"></i></a></div></h1><p>Pore is a plugin for the up-and-coming SpongeAPI built to provide compatibility for Bukkit plugins on the platform. Please note that this project is still under heavy development and <strong>is not yet considered functional</strong>. Currently, no Bukkit plugins are verified to be supported.</p>
 <h2 id="compilation">Compilation</h2>
 <p>Gradle is used to handle dependencies.</p>
 <ul>
 <li>Clone the repo: <code>git clone https://github.com/LapisBlue/Pore.git</code></li>
 <li>Navigate to the new directory: <code>cd Pore</code></li>
-<li>Initialize the project: <code>./poredev update</code> (<code>poredev update</code> on Windows)</li>
 <li>Compile the project using the Gradle wrapper: <code>./gradlew</code> (<code>gradlew</code> on Windows)</li>
 </ul>
 <h2 id="running">Running</h2>
 <p>You can run and debug Pore directly in your IDE if you setup your workspace like described in the following steps:</p>
 <ol>
-<li>Setup the Pore project as described in <a href="https://docs.spongepowered.org/en/plugin/advanced/debugging.html">Plugin Debugging and Hotswapping (SpongeDocs)</a></li>
-<li>Unlike in the description above, create a <strong>new</strong> run configuration with the same as the defaults but add the this as program argument: <code>--tweakClass blue.lapis.pore.tweaker.RemapTweaker</code></li>
-<li>Run the server as usual, Pore should load and you should be able to debug in your IDE.</li>
+<li>Setup the Pore project as described in
+<a href="https://docs.spongepowered.org/en/plugin/advanced/debugging.html">Plugin Debugging and Hotswapping (SpongeDocs)</a></li>
+<li>Create a <strong>new</strong> run configuration with the same settings as described in the link above, but add this as a program
+argument: <code>--tweakClass blue.lapis.pore.tweaker.RemapTweaker</code></li>
+<li>Run the server as usual. Pore should load and you should be able to debug in your IDE.</li>
+</ol>
+<h2 id="configuring-the-annotation-processor">Configuring the annotation processor</h2>
+<p>Pore uses an annotation processor for event registration. It will be run by the Gradle wrapper by default and IDEA when
+the project is first built, but if you wish to make changes to event registration, the IDE must be configured to run it
+on project rebuild. If you don&#39;t know what event registration means, skip this step.</p>
+<p>For IntelliJ IDEA:</p>
+<ol>
+<li>Open <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build, Execution, and Deployment</code>-&gt;<code>Compiler</code>-&gt;<code>Annotation Processors</code>.</li>
+<li>Click the <code>Add</code> (plus) button and name the new profile <code>Pore AP</code>.</li>
+<li>Click the <code>Pore</code> module under the <code>Default</code> profile and click the <code>Move to</code> button to move it to the <code>Pore AP</code>
+profile.</li>
+<li>In the <code>Processor FQ Name</code> pane, click the <code>Add</code> button and enter the following:
+<code>blue.lapis.pore.event.EventProcessor</code></li>
+<li>Click <code>Apply</code>. The processor will be run when the project is rebuilt (<code>Build</code>-&gt;<code>Rebuild Project</code>).</li>
 </ol>
 <h2 id="questions-">Questions?</h2>
 <p>Have an issue or a question about Pore? No problem! Feel free to ask in #lapis on EsperNet.</p>
