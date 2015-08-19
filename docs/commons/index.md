@@ -2,6 +2,8 @@
 title: 'Commons'
 ---
 
+__Note: LapisCommons is not actively maintained and deprecated. The [Sponge API](https://github.com/SpongePowered/SpongeAPI) has become mature enough to contain almost all functionality LapisCommons once had. Please depend on the Sponge API instead.__
+
 Please see the [trello board](https://trello.com/b/f2PkdRlH/commons) and [google docs folders](https://drive.google.com/drive/#folders/0B5EFkhXKnIfTU2trM3hiSHR0azQ).
 
 This project includes:
